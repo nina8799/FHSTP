@@ -1,0 +1,7 @@
+Goal: create a follow up flow chart which resembles the improvement or deterioration of the hearing level from one appointment to another
+
+User Input: Users can put in the date and hearing level at a specific frequency in a table
+the website should have one text field for the date and a table with two columns, the frequency and the hearing level. The frequencies 125, 250, 500, 1000, 2000, 4000 and 8000 should be given in hertz.
+The cells for the hearing levels should be empty text field, where the users put in the decibel from the hearing test. 
+
+Output: flow chart which resembles the changes 
