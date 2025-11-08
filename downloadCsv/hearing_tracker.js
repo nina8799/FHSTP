@@ -16,11 +16,15 @@
     const tdFreq = document.createElement('td');
     tdFreq.textContent = freq;
     const tdInput = document.createElement('td');
-    const input = document.createElement('input');
-    input.type = 'number';
-    input.placeholder = 'dB';
-    input.dataset.freq = String(freq);
-    input.min = -50; input.max = 150;
+  const input = document.createElement('input');
+  // Use a regular text field so there is no spinner/arrow keypad.
+  // Provide a numeric keyboard on supporting devices via inputmode.
+  input.type = 'text';
+  input.inputMode = 'decimal';
+  input.placeholder = 'dB';
+  input.dataset.freq = String(freq);
+  // allow characters like comma for decimal (we normalize on parse)
+  input.pattern = '[0-9.,\-]+';
     tdInput.appendChild(input);
     tr.appendChild(tdFreq);
     tr.appendChild(tdInput);
@@ -102,11 +106,13 @@
     const levels = {};
     inputs.forEach(inp => {
       const f = Number(inp.dataset.freq);
-      const v = inp.value.trim();
-      if(v !== ''){
-        const n = Number(v);
-        if(Number.isFinite(n)) levels[f] = n;
-      }
+        const v = inp.value.trim();
+        if(v !== ''){
+          // allow comma as decimal separator, normalize to dot
+          const normalized = v.replace(',', '.');
+          const n = parseFloat(normalized);
+          if(!Number.isNaN(n)) levels[f] = n;
+        }
     });
 
     const apps = loadAppointments();
