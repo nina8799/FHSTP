@@ -5,3 +5,4 @@ the website should have one text field for the date and a table with two columns
 The cells for the hearing levels should be empty text field, where the users put in the decibel from the hearing test. 
 
 Output: flow chart which resembles the changes 
+the flow chart should represent the improvement or deterioration of the hearing level. As a lower number of decibel is considered better hearing, the lower numbers resemble improvement. 
