@@ -65,12 +65,14 @@
         responsive:true,
         scales: {
           x: { title: { display:true, text:'Appointment date' } },
-          y: { title: { display:true, text:'Hearing level (dB)' }, beginAtZero:false }
+          // fixed orientation: bottom = highest dB, top = 0 dB
+          y: { title: { display:true, text:'Hearing level (dB)' }, beginAtZero:false, reverse: true }
         },
         plugins: { legend: { position:'bottom' } }
       }
     });
   }
+
 
   function renderAppointments(){
     const apps = loadAppointments();

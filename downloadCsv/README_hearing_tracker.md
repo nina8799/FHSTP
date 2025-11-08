@@ -15,6 +15,12 @@ Notes
 - Data is stored locally in your browser (localStorage). It does not leave your computer.
 - Chart uses Chart.js via CDN; internet access is required to load the library.
 
+Interpretation note
+- Lower dB values indicate better hearing. On the chart, a downward trend (values decreasing over time) therefore represents improvement, and an upward trend represents deterioration.
+
+Axis orientation (fixed)
+- The chart uses a fixed orientation: the bottom of the chart shows the highest (worst) dB values and the top shows 0 dB (best). Visual upward trends therefore represent improvement. This orientation is fixed and cannot be changed by the user.
+
 Files
 - `hearing_tracker.html` — UI and canvas
 - `hearing_tracker.js` — logic and Chart.js data wiring
